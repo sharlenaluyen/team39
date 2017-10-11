@@ -1,0 +1,3 @@
+Card: (“As a [user], I want [function], so that [value]”)
+Conversation: (Details that clarify the user story)
+Confirmation: (Tests to know when the User Story is completed)
