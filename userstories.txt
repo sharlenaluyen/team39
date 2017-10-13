@@ -37,4 +37,4 @@ Confirmation: When the player clicks on a card, it will move to an empty stack, 
 
 Card: As a player, I only want to discard a card if it is the lowest of two suits.
 Conversation: To avoid the ability to cheat, I'd like to only be able to discard a card if there are two or more suits and it is the lowest of them.
-Confirmation: The card clicked on will discard if it is the lowest of two suits shown.
+Confirmation: The card clicked on will discard if it is the lowest of two suits shown..
