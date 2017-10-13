@@ -19,3 +19,22 @@ Confirmation: The deck is full and shuffled differently than before.
 Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
 Conversation: A part of my strategy is to think about which cards are still left in the deck. In order to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
 Confirmation: The deck does not repeat any cards that have already been discarded.
+
+Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
+Conversation: A part of my strategy is to think about which cards are still left in the deck. In order to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
+Confirmation: The deck does not repeat any cards that have already been discarded.
+
+
+------------------------------------------------------------------------------------------------
+
+Card: As a player, I want a card to disappear when I click on it, so that I know its been discarded.
+Conversation: I want to visually see the card I intend to discard being discarded.
+Confirmation: When the player clicks on a card, it will disappear. 
+
+Card: As a player, I want to be able to move a card to an empty stack, so that I can keep playing with 4 stacks
+Conversation: I want to click on a card and when there is an empty stack, and the card moves to that stack, revealing the card beneath it. 
+Confirmation: When the player clicks on a card, it will move to an empty stack, if there is one.
+
+Card: As a player, I only want to discard a card if it is the lowest of two suits.
+Conversation: To avoid the ability to cheat, I'd like to only be able to discard a card if there are two or more suits and it is the lowest of them.
+Confirmation: The card clicked on will discard if it is the lowest of two suits shown.
