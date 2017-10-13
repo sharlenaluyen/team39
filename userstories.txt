@@ -17,6 +17,5 @@ Conversation: I would like to get a new score with a new game in order to contin
 Confirmation: The deck is full and shuffled differently than before.
 
 Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
-Conversation: A part of my strategy is to think about which cards are still left in the deck. In order
-to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
+Conversation: A part of my strategy is to think about which cards are still left in the deck. In order to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
 Confirmation: The deck does not repeat any cards that have already been discarded.
