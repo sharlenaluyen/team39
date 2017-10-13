@@ -1,3 +1,22 @@
 Card: (“As a [user], I want [function], so that [value]”)
 Conversation: (Details that clarify the user story)
 Confirmation: (Tests to know when the User Story is completed)
+
+Card: ("As a player, I want to update the score visually, so that I can keep track of my points")
+Conversation: (Every time I discard a card, I would like my score to update and reflect my current score accordingly.
+I would like to continuously beat my scores and improve over time. To do so, I need my scores from all of my games.
+Confirmation: The score updates on screen every time a card is discarded.
+
+Card: As a player, I want to be notified when I win or lose, so that I know when to record my score and start a new game.
+Conversation: In order to keep track of my progress, I need to know when to record my scores. When the game is over
+or there are no more moves, I want to be told so that I do not waste my time.
+Confirmation: No more moves can be done.
+
+Card: As a player, I want to have the option of restarting the deck so that I can play again.
+Conversation: I would like to get a new score with a new game in order to continue to improve my game playing skills.
+Confirmation: The deck is full and shuffled differently than before.
+
+Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
+Conversation: A part of my strategy is to think about which cards are still left in the deck. In order
+to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
+Confirmation: The deck does not repeat any cards that have already been discarded.
