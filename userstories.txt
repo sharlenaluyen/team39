@@ -2,7 +2,7 @@ Card: (“As a [user], I want [function], so that [value]”)
 Conversation: (Details that clarify the user story)
 Confirmation: (Tests to know when the User Story is completed)
 
-Card: ("As a player, I want to update the score visually, so that I can keep track of my points")
+Card: As a player, I want to update the score visually, so that I can keep track of my points
 Conversation: (Every time I discard a card, I would like my score to update and reflect my current score accordingly.
 I would like to continuously beat my scores and improve over time. To do so, I need my scores from all of my games.
 Confirmation: The score updates on screen every time a card is discarded.

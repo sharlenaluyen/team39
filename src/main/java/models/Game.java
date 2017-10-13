@@ -29,10 +29,14 @@ public class Game {
 
     public void shuffle() {
         // shuffles the deck so that it is random
+        Collections.shuffle(deck);
     }
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
+        for(int f = 0; f < 4; f++){
+            
+        }
     }
 
     public void remove(int columnNumber) {
