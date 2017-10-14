@@ -36,10 +36,9 @@ public class Game {
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
 
-        for(int f = 0; f < 4; f++){
+        for(int f = 0; f < 4; f++) {
             addCardToCol(f,deck.get(deck.size()-1));
-            deck.remove(deck.size());
-
+            deck.remove(deck.size()-1);
         }
     }
 
@@ -50,7 +49,7 @@ public class Game {
 
     private boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
-        if(this.cols.get(columnNumber).size() == 0){
+        if(this.cols.isEmpty()){
             return false;
         }
         else{
