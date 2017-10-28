@@ -17,9 +17,7 @@ width: 100px;
 background-color:#F0F0F0;
 }
 
-body.logo{
-width:10%;
-padding: 10px;
-border-color: black;
-border-size: 2px;
+body {
+  background-image: (swebackground1.jpg);
+  background-color: white;
 }
