@@ -16,3 +16,8 @@ font-weight: bold;
 width: 100px;
 background-color:#F0F0F0;
 }
+
+body {
+  background-image: (swebackground1.jpg);
+  background-color: white;
+}
