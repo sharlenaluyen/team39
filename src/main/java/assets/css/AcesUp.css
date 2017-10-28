@@ -2,9 +2,10 @@ body {
   font-family: 'Bree Serif'; font-size: 32px;
   font-size: 12px;
   margin: 0;
-  background-color: #009900;
   border: 5px;
   border-color: #186329;
+  background-image: (swebackground1.jpg);
+  background-color: white;
 }
 
 tr{
@@ -27,3 +28,4 @@ color: #000000;
 width: 100px;
 background-color:#F0F0F0;
 }
+
