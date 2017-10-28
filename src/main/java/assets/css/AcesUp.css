@@ -1,3 +1,13 @@
+body {
+  font-family: 'Bree Serif'; font-size: 32px;
+  font-size: 12px;
+  margin: 0;
+  border: 5px;
+  border-color: #186329;
+  background-image: (swebackground1.jpg);
+  background-color: white;
+}
+
 tr{
 width:500px;
 }
@@ -6,10 +16,12 @@ td{
 width:100px;
 height:20px;
 text-align:center;
+color: #000000;
 }
 
 .title{
 font-weight: bold;
+color: #000000;
 }
 
 .cardLocation{
@@ -17,7 +29,3 @@ width: 100px;
 background-color:#F0F0F0;
 }
 
-body {
-  background-image: (swebackground1.jpg);
-  background-color: white;
-}
