@@ -26,16 +26,26 @@ body{
 }
 
 .card_table{
-//display: flex;
+display: flex;
+justify-content: flex-start;
+}
+
+#remove_stuff{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.rb{
+  margin: 8;
 }
 
 
 .deal{
-    position:absolute;
+    position:fixed;
     bottom:0;
     right:0;
-    margin: 300px;
-
+    margin: auto;
 }
 
 tr{
@@ -59,3 +69,7 @@ width: 100px;
 background-color: #017c04;
 }
 
+#title_remove{
+text-align: center;
+font-size: 25px;
+}
