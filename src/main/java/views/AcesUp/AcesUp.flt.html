@@ -13,6 +13,15 @@
         <div id="logo"> <img src="http://acesupgaming.com/wp-content/uploads/2013/02/logo.png"> </div>
     </header>
 
+    <div class="newgame">
+        <button id="newgameButton">New Game</button>
+    </div>
+
+    <div class = "score">
+        <h2 id = "scoretitle">Score: </h2>
+        <h2 id ="result">0</h2>
+    </div>
+
     <div id="move_line"><BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button></div>
 
     <div id="remove_stuff"><BR><button id="Remove1" class="rb">Remove</button>
@@ -110,9 +119,7 @@
         <button id="dealButton">Deal</button>
     </div>
 
-    <div class="newgame">
-        <button id="newgameButton">New Game</button>
-    </div>
+
 
 
 
@@ -122,6 +129,17 @@
 
 var game;
 var resetgameButton;
+var total = 0;
+
+document.getElementById('Remove4').onclick = addpoints;
+document.getElementById('Remove3').onclick = addpoints;
+document.getElementById('Remove2').onclick = addpoints;
+document.getElementById('Remove1').onclick = addpoints;
+
+function addpoints(){
+    total = total + 5;
+    document.getElementById('result').innerHTML = total;
+}
 
 function display(game) {
 console.log(game);
