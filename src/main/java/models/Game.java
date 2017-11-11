@@ -1,5 +1,5 @@
 package models;
-
+import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -40,8 +40,8 @@ public class Game {
 
     public void dealFour() {
         for(int i = 0; i < 4; i++){
-            cols.get(i).add(deck.get(deck.size()-1));
-            deck.remove(deck.size()-1);
+          cols.get(i).add(deck.get(deck.size() - 1));
+          deck.remove(deck.size() - 1);
         }
     }
 
@@ -93,8 +93,18 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         Card cardToMove = getTopCard(columnFrom);
-        this.removeCardFromCol(columnFrom);
-        this.addCardToCol(columnTo,cardToMove);
+        if (columnHasCards(columnTo) == true) {
+            this.removeCardFromCol(columnFrom);
+            this.addCardToCol(columnTo, cardToMove);
+        } else if (columnHasCards(columnTo) == false) {
+            if (cardToMove.value == 14) {
+                JOptionPane.showMessageDialog(null, "Oops! You can't move the Ace there. Try again!");
+            }else{
+                this.removeCardFromCol(columnFrom);
+                this.addCardToCol(columnTo, cardToMove);
+
+            }
+        }
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
