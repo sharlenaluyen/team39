@@ -110,6 +110,10 @@
         <button id="dealButton">Deal</button>
     </div>
 
+    <div class="newgame">
+        <button id="newgameButton">New Game</button>
+    </div>
+
 
 
 </body>
@@ -117,6 +121,7 @@
 <script>
 
 var game;
+var resetgameButton;
 
 function display(game) {
 console.log(game);
@@ -142,6 +147,11 @@ $( '.columnOfCards .cardLocation' ).html("");
 
 
 }
+
+
+resetgameButton = document.getElementById("newgameButton");
+resetgameButton.onclick = function(){ location.reload(); };
+
 
 $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
