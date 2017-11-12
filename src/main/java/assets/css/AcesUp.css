@@ -34,6 +34,7 @@ justify-content: flex-start;
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-top: 100px;
 }
 
 #move_line{
@@ -48,12 +49,13 @@ justify-content: flex-start;
   margin: 8;
 }
 
-
 .deal{
-    text-align: center;
-    margin: 200px;
-    width: 200px;
-    height: 200px;
+  text-align: center;
+}
+
+#card_image{
+    width: 150px;;
+    height: auto;
 }
 
 tr{
