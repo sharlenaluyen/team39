@@ -149,67 +149,19 @@ console.log(game);
 $( '.columnOfCards .cardLocation' ).html("");
 
     $.each(game.cols[0], function( key, val ) {
-        if(val.suit == "Hearts"){
-            val.suit = "♥";
-        }
-        if(val.suit == "Diamonds"){
-            val.suit = "♦";
-        }
-        if(val.suit == "Spades"){
-            val.suit = "♠";
-        }
-        if(val.suit == "Clubs"){
-            val.suit = "♣";
-        }
         $( '#c0 .l'+key ).html(val.value + val.suit);
 
     });
 
  $.each(game.cols[1], function( key, val ) {
-        if(val.suit == "Hearts"){
-            val.suit = "♥";
-        }
-        if(val.suit == "Diamonds"){
-            val.suit = "♦";
-        }
-        if(val.suit == "Spades"){
-            val.suit = "♠";
-        }
-        if(val.suit == "Clubs"){
-            val.suit = "♣";
-        }
         $( '#c1 .l'+key ).html(val.value + val.suit);
     });
 
  $.each(game.cols[2], function( key, val ) {
-        if(val.suit == "Hearts"){
-            val.suit = "♥";
-        }
-        if(val.suit == "Diamonds"){
-            val.suit = "♦";
-        }
-        if(val.suit == "Spades"){
-            val.suit = "♠";
-        }
-        if(val.suit == "Clubs"){
-            val.suit = "♣";
-        }
         $( '#c2 .l'+key ).html(val.value + val.suit);
     });
 
  $.each(game.cols[3], function( key, val ) {
-        if(val.suit == "Hearts"){
-            val.suit = "♥";
-        }
-        if(val.suit == "Diamonds"){
-            val.suit = "♦";
-        }
-        if(val.suit == "Spades"){
-            val.suit = "♠";
-        }
-        if(val.suit == "Clubs"){
-            val.suit = "♣";
-        }
         $( '#c3 .l'+key ).html(val.value + val.suit);
     });
 
