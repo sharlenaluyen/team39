@@ -34,8 +34,7 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
-        g.buildDeck();
-        g.shuffle();
+        g.deck.shuffle();
         g.dealFour();
 
         return Results.json().render(g);
