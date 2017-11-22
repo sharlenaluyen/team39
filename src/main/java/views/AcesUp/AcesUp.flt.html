@@ -118,6 +118,10 @@
     <div class="deal">
         <button id="dealButton">
             <img id="card_image" src="http://www.murphysmagicsupplies.com/images_email/Mandolin_BACK.jpg">
+            <div class = "deck_count">
+                <p id ="cards_left">48</p>
+            </div>
+
         </button>
     </div>
 
@@ -132,11 +136,26 @@
 var game;
 var resetgameButton;
 var total = 0;
+var cardsLeft = 48;
 
 document.getElementById('Remove4').onclick = addpoints;
 document.getElementById('Remove3').onclick = addpoints;
 document.getElementById('Remove2').onclick = addpoints;
 document.getElementById('Remove1').onclick = addpoints;
+
+
+document.getElementById('dealButton').onclick = minusCards;
+
+function minusCards(){
+    if(cardsLeft > 4){
+        cardsLeft = cardsLeft - 4;
+    }
+    else if (cardsLeft <= 4){
+        cardsLeft = "No More Cards";
+    }
+    document.getElementById('cards_left').innerHTML = cardsLeft;
+
+}
 
 function addpoints(){
     total = total + 5;
@@ -148,20 +167,19 @@ console.log(game);
 
 $( '.columnOfCards .cardLocation' ).html("");
 
-    $.each(game.cols[0], function( key, val ) {
+ $.each(game.columns[0].cards, function( key, val ) {
         $( '#c0 .l'+key ).html(val.value + val.suit);
-
     });
 
- $.each(game.cols[1], function( key, val ) {
+ $.each(game.columns[1].cards, function( key, val ) {
         $( '#c1 .l'+key ).html(val.value + val.suit);
     });
 
- $.each(game.cols[2], function( key, val ) {
+ $.each(game.columns[2].cards, function( key, val ) {
         $( '#c2 .l'+key ).html(val.value + val.suit);
     });
 
- $.each(game.cols[3], function( key, val ) {
+ $.each(game.columns[3].cards, function( key, val ) {
         $( '#c3 .l'+key ).html(val.value + val.suit);
     });
 
@@ -201,7 +219,7 @@ url: "/removeCard/"+colNumber,
 data: JSON.stringify(game),
 success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
 game = data;
-display(data);},
+display(game);},
 contentType:"application/json; charset=utf-8",
 dataType:"json",
 });
@@ -232,7 +250,7 @@ $.ajax({
   data: JSON.stringify(game),
   success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
-        display(data);},
+        display(game);},
   contentType:"application/json; charset=utf-8",
   dataType:"json",
 });
