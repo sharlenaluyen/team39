@@ -41,10 +41,14 @@ public class SpanishGame {
             for (int i = 0; i < 4; i++) {
                 if (i != columnNumber) {
                     if (columnHasCards(i)) {
-                        SpanishCard compare = getTopCard(i);
-                        if (compare.getSuit() == c.getSuit()) {
-                            if (compare.getValue() > c.getValue()) {
-                                removeCard = true;
+                        if(getTopCard(0).getValue() == 13 || getTopCard(1).getValue() == 13  || getTopCard(2).getValue() == 13 || getTopCard(3).getValue() == 13) {
+                            removeCard = true;
+                        }else{
+                            SpanishCard compare = getTopCard(i);
+                            if (compare.getSuit() == c.getSuit()) {
+                                if (compare.getValue() > c.getValue()) {
+                                    removeCard = true;
+                                }
                             }
                         }
                     }
