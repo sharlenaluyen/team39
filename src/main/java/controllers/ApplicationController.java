@@ -57,7 +57,7 @@ public class ApplicationController {
     }
 
     public Result dealPostSpanish(Context context, SpanishGame sg) {
-        if(context.getRequestPath().contains("sdeal")){
+        if(context.getRequestPath().contains("spanishDealGame")){
             sg.dealFour();
         }
         return Results.json().render(sg);
@@ -68,7 +68,7 @@ public class ApplicationController {
         return  Results.json().render(g);
     }
 
-    public Result removeCardSpanish(Context context, @PathParam("scolumn") int colNumber, SpanishGame sg){
+    public Result removeCardSpanish(Context context, @PathParam("column") int colNumber, SpanishGame sg){
         sg.remove(colNumber);
         return  Results.json().render(sg);
     }
@@ -78,7 +78,7 @@ public class ApplicationController {
         return  Results.json().render(g);
     }
 
-    public Result moveCardSpanish(Context context, @PathParam("scolumnFrom") int colFrom, @PathParam("scolumnTo") int colTo, SpanishGame sg){
+    public Result moveCardSpanish(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, SpanishGame sg){
         sg.move(colFrom,colTo);
         return  Results.json().render(sg);
     }

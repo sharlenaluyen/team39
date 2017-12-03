@@ -142,6 +142,7 @@ var spanishgame;
 var resetgameButton;
 var total = 0;
 var cardsLeft = 48;
+var isSpanish = false;
 
 document.getElementById('Remove4').onclick = addpoints;
 document.getElementById('Remove3').onclick = addpoints;
@@ -167,50 +168,57 @@ function addpoints(){
     document.getElementById('result').innerHTML = total;
 }
 
+
+
 function display(game) {
 console.log(game);
 
-$( '.columnOfCards .cardLocation' ).html("");
+        $( '.columnOfCards .cardLocation' ).html("");
 
- $.each(game.columns[0].cards, function( key, val ) {
-        $( '#c0 .l'+key ).html(val.value + val.suit);
-    });
+        $.each(game.columns[0].cards, function( key, val ) {
+            $( '#c0 .l'+key ).html(val.value + val.suit);
+        });
 
- $.each(game.columns[1].cards, function( key, val ) {
-        $( '#c1 .l'+key ).html(val.value + val.suit);
-    });
+        $.each(game.columns[1].cards, function( key, val ) {
+            $( '#c1 .l'+key ).html(val.value + val.suit);
+        });
 
- $.each(game.columns[2].cards, function( key, val ) {
-        $( '#c2 .l'+key ).html(val.value + val.suit);
-    });
+        $.each(game.columns[2].cards, function( key, val ) {
+            $( '#c2 .l'+key ).html(val.value + val.suit);
+        });
 
- $.each(game.columns[3].cards, function( key, val ) {
-        $( '#c3 .l'+key ).html(val.value + val.suit);
-    });
-
-
-
+        $.each(game.columns[3].cards, function( key, val ) {
+            $( '#c3 .l'+key ).html(val.value + val.suit);
+        });
 }
 
 
 resetgameButton = document.getElementById("newgameButton");
 spanishGameButton = document.getElementById("newgameButtonSpanish");
 
-resetgameButton.onclick = function(){ location.reload(); };
+resetgameButton.onclick = function(){
+
+    isSpanish = false;
+
+    $.getJSON("http://localhost:8080/game", function( data ) {
+    display(data);
+    game = data;
+    });
+};
 
 
-$.getJSON("http://localhost:8080/game", function( data ) {
-display(data);
-game = data;
-});
+spanishGameButton.onclick = function(){
 
-$.getJSON("http://localhost:8080/spanishgame", function( data ) {
-display(data);
-spanishgame = data;
-});
+    isSpanish = true;
+
+    $.getJSON("http://localhost:8080/spanishgame", function( data ) {
+    display(data);
+    spanishgame = data;
+    });
+};
 
 $("#dealButton").click(function(){
-    if(document.URL == "http://localhost:8080/spanishgame"){
+    if(isSpanish == true){
         $.ajax({
         type: "POST",
         url: "/spanishDealGame",
@@ -221,8 +229,9 @@ $("#dealButton").click(function(){
         contentType:"application/json; charset=utf-8",
         dataType:"json",
         });
+        console.log("we went into the if statement");
     }
-    else if(document.URL == "http://localhost:8080/game"){
+    else {
         $.ajax({
         type: "POST",
         url: "/dealGame",
@@ -239,7 +248,7 @@ $("#dealButton").click(function(){
 
 
 function removeCard(colNumber){
-    if(document.URL == "http://localhost:8080/spanishgame"){
+    if(isSpanish == true){
         $.ajax({
         type: "POST",
         url: "/spanishRemoveCard/"+colNumber,
@@ -251,7 +260,7 @@ function removeCard(colNumber){
         dataType:"json",
         });
     }
-    else if(document.URL == "http://localhost:8080/game"){
+    else {
         $.ajax({
         type: "POST",
         url: "/removeCard/"+colNumber,
@@ -285,7 +294,7 @@ $("#moveButton").click(function(){
 var colFrom = $("#from_col").val();
 var colTo = $("#to_col").val();
 
-if(document.URL == "http://localhost:8080/spanishgame"){
+if(isSpanish == true){
         $.ajax({
         type: "POST",
         url: "/spanishMoveCard/"+colFrom+"/"+colTo,
@@ -297,7 +306,7 @@ if(document.URL == "http://localhost:8080/spanishgame"){
         dataType:"json",
         });
     }
-    else if(document.URL == "http://localhost:8080/game"){
+    else {
         $.ajax({
         type: "POST",
         url: "/moveCard/"+colFrom+"/"+colTo,
