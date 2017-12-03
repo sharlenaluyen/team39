@@ -16,8 +16,8 @@ public class SpanishDeck {
             spanishCards.add(new SpanishCard(i,SpanishSuit.Espadas));
         }
         //adding jokers
-        spanishCards.add(new SpanishCard(49,SpanishSuit.Joker));
-        spanishCards.add(new SpanishCard(50,SpanishSuit.Joker));
+        spanishCards.add(new SpanishCard(13,SpanishSuit.Joker));
+        spanishCards.add(new SpanishCard(13,SpanishSuit.Joker));
     }
 
     public void shuffle() {
