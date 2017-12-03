@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-public class Game {
+public class SpanishGame {
 
     public Deck deck = new Deck();
     public java.util.List<Column> columns = new ArrayList<>();

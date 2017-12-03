@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class Deck {
+public class SpanishDeck {
 
     public java.util.List<Card> cards = new ArrayList<>();
 
