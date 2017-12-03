@@ -6,28 +6,28 @@ import java.util.Random;
 
 public class SpanishDeck {
 
-    public java.util.List<Card> cards = new ArrayList<>();
+    public java.util.List<SpanishCard> spanishCards = new ArrayList<>();
 
-    public Deck() {
+    public SpanishDeck() {
         for(int i = 2; i < 15; i++){
-            cards.add(new Card(i,Suit.Clubs));
-            cards.add(new Card(i,Suit.Hearts));
-            cards.add(new Card(i,Suit.Diamonds));
-            cards.add(new Card(i,Suit.Spades));
+            spanishCards.add(new SpanishCard(i,SpanishSuit.Bastos));
+            spanishCards.add(new SpanishCard(i,SpanishSuit.Copas));
+            spanishCards.add(new SpanishCard(i,SpanishSuit.Oros));
+            spanishCards.add(new SpanishCard(i,SpanishSuit.Espadas));
         }
     }
 
     public void shuffle() {
         long seed = System.nanoTime();
-        Collections.shuffle(cards, new Random(seed));
+        Collections.shuffle(spanishCards, new Random(seed));
     }
 
-    public ArrayList<Card> dealFour() {
-        ArrayList<Card> four = new ArrayList<>();
+    public ArrayList<SpanishCard> dealFour() {
+        ArrayList<SpanishCard> four = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            if (cards.size() > 0) {
-                four.add(cards.get(i));
-                cards.remove(i);
+            if (spanishCards.size() > 0) {
+                four.add(spanishCards.get(i));
+                spanishCards.remove(i);
             }
         }
         return four;

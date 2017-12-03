@@ -11,17 +11,17 @@ import java.io.Serializable;
 
 public class SpanishCard implements Serializable {
     public final int value;
-    public final Suit suit;
+    public final SpanishSuit spanishSuit;
 
     @JsonCreator
-    public Card(@JsonProperty("value") int value, @JsonProperty("suit") Suit suit) {
+    public SpanishCard(@JsonProperty("value") int value, @JsonProperty("suit") SpanishSuit spanishSuit) {
         this.value = value;
-        this.suit = suit;
+        this.spanishSuit = spanishSuit;
 
     }
 
-    public Suit getSuit() {
-        return suit;
+    public SpanishSuit getSuit() {
+        return spanishSuit;
     }
 
     public int getValue() {
@@ -29,6 +29,6 @@ public class SpanishCard implements Serializable {
     }
 
     public String toString() {
-        return this.value + this.suit.toString();
+        return this.value + this.spanishSuit.toString();
     }
 }
