@@ -43,6 +43,7 @@ public class SpanishGame {
                     if (columnHasCards(i)) {
                         if(getTopCard(0).getValue() == 13 || getTopCard(1).getValue() == 13  || getTopCard(2).getValue() == 13 || getTopCard(3).getValue() == 13) {
                             removeCard = true;
+                            break;
                         }else{
                             SpanishCard compare = getTopCard(i);
                             if (compare.getSuit() == c.getSuit()) {
