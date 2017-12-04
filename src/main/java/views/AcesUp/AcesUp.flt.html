@@ -200,7 +200,11 @@ spanishGameButton = document.getElementById("newgameButtonSpanish");
 resetgameButton.onclick = function(){
 
     isSpanish = false;
+
     cardsLeft = 48;
+
+    document.getElementById('result').innerHTML = 0;
+
 
     $.getJSON("http://localhost:8080/game", function( data ) {
     display(data);
@@ -219,7 +223,11 @@ resetgameButton.onclick = function(){
 spanishGameButton.onclick = function(){
 
     isSpanish = true;
+
     cardsLeft = 46;
+
+    document.getElementById('result').innerHTML = 0;
+
 
     $.getJSON("http://localhost:8080/spanishgame", function( data ) {
     display(data);
