@@ -22,12 +22,6 @@ public class testGame {
     }
 
     @Test
-    public void testSpanishDeckCreation(){
-        SpanishGame sg = new SpanishGame();
-        assertEquals(50,sg.deck.spanishCards.size());
-    }
-
-    @Test
     public void testGameInit(){
         Game g = new Game();
         g.deck.shuffle();
