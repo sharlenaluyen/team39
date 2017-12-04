@@ -2,10 +2,19 @@ package models;
 
 import java.util.ArrayList;
 
+
 public class SpanishGame {
 
     public SpanishDeck deck = new SpanishDeck();
     public java.util.List<SpanishColumn> columns = new ArrayList<>();
+
+    public int turnNum = 0;
+    public int jokerTurn = 0;
+    public int rmvdCol1 = 0;
+    public int rmvdCol2 = 0;
+    public int rmvdCol3 = 0;
+    public int rmvdCol4 = 0;
+
 
     public SpanishGame(){
         columns.add(new SpanishColumn(1));
@@ -15,6 +24,12 @@ public class SpanishGame {
     }
 
     public void dealFour() {
+        turnNum = turnNum + 1;
+        jokerTurn = 0;
+        rmvdCol1 = 0;
+        rmvdCol2 = 0;
+        rmvdCol3 = 0;
+        rmvdCol4 = 0;
         ArrayList<SpanishCard> deal = deck.dealFour();
         for (int i = 0; i < deal.size(); i++) {
             SpanishCard c = deal.get(i);
@@ -42,8 +57,31 @@ public class SpanishGame {
                 if (i != columnNumber) {
                     if (columnHasCards(i)) {
                         if(getTopCard(0).getValue() == 13 || getTopCard(1).getValue() == 13  || getTopCard(2).getValue() == 13 || getTopCard(3).getValue() == 13) {
+                            jokerTurn = 1;
+                            if(columnNumber == 0){
+                                rmvdCol1 = 1;
+                            }else if(columnNumber == 1){
+                                rmvdCol2 = 1;
+                            }else if(columnNumber == 2){
+                                rmvdCol3 = 1;
+                            }else if(columnNumber == 3){
+                                rmvdCol4 = 1;
+                            }
                             removeCard = true;
                             break;
+                        }else if (jokerTurn == 1) {
+                            if(rmvdCol1 == 1 && columnNumber == 0){
+                                removeCard = false;
+                            }else if(rmvdCol2 == 1 && columnNumber == 1){
+                                removeCard = false;
+                            }else if(rmvdCol3 == 1 && columnNumber == 2){
+                                removeCard = false;
+                            }else if(rmvdCol4 == 1 && columnNumber == 3){
+                                removeCard = false;
+                            }else{
+                                removeCard = true;
+                                break;
+                            }
                         }else{
                             SpanishCard compare = getTopCard(i);
                             if (compare.getSuit() == c.getSuit()) {
