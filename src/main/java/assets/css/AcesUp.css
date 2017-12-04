@@ -1,6 +1,17 @@
-header{
-  background-color: #004902;
+.normalBackground{
+    background-color: #017c04;
+}
 
+.spanishBackground{
+    background-color: #9f6144;
+}
+
+.normalHeader{
+  background-color: #004902;
+}
+
+.spanishHeader{
+  background-color: #80320d;
 }
 
 #logo{
@@ -15,12 +26,10 @@ body{
   margin: 0;
   border-size: 5px;
   border-color: #186329;
-  background-color: #017c04;
 }
 
 .main_container{
   display: flex;
-  background-color: #017c04;
   justify-content: center;
   align-items: center;
 }
@@ -59,13 +68,29 @@ justify-content: flex-start;
     height: auto;
 }
 
+
+.normalCardImage{
+    content:url("http://www.murphysmagicsupplies.com/images_email/Mandolin_BACK.jpg");
+}
+
+.spanishCardImage{
+    content:url("https://i.pinimg.com/originals/c3/81/b9/c381b91ada97877fbab4dcfdd4d42f08.jpg");
+}
+
 .newgame{
     text-align: center;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.newgamespanish{
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .score{
@@ -98,5 +123,4 @@ color: #000000;
 
 .cardLocation{
 width: 100px;
-background-color: #017c04;
 }
