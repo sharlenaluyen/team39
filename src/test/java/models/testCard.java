@@ -11,6 +11,12 @@ public class testCard {
 
 
     @Test
+    public void testGetValue(){
+        Card c = new Card(7,Suit.Clubs);
+        assertEquals(7,c.getValue());
+    }
+    
+    @Test
     public void testToString(){
         Card c = new Card(5,Suit.Clubs);
         assertEquals("5Clubs",c.toString());
