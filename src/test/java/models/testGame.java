@@ -16,50 +16,51 @@ public class testGame {
     }
 
     @Test
-    public void testGameBuildDeck(){
-        Game g = new Game();
-        g.buildDeck();
-        assertEquals(52,g.deck.size());
+    public void testGameSpanish(){
+        SpanishGame sg = new SpanishGame();
+        assertNotNull(sg);
+    }
+
+    @Test
+    public void testSpanishDeckCreation(){
+        SpanishGame sg = new SpanishGame();
+        assertEquals(50,sg.deck.spanishCards.size());
     }
 
     @Test
     public void testGameInit(){
         Game g = new Game();
-        g.buildDeck();
-        g.shuffle();
-        assertNotEquals(2,g.deck.get(0).getValue());
+        g.deck.shuffle();
+        assertNotEquals(2,g.columns.get(0));
     }
 
     @Test
     public void testGameStart(){
         Game g = new Game();
-        g.buildDeck();
-        g.shuffle();
+        g.deck.shuffle();
         g.dealFour();
-        assertEquals(1,g.cols.get(0).size());
-        assertEquals(1,g.cols.get(1).size());
-        assertEquals(1,g.cols.get(2).size());
-        assertEquals(1,g.cols.get(3).size());
+        assertEquals(1,g.columns.get(0).cards.size());
+        assertEquals(1,g.columns.get(1).cards.size());
+        assertEquals(1,g.columns.get(2).cards.size());
+        assertEquals(1,g.columns.get(3).cards.size());
     }
 
     @Test
     public void testCustomDeal(){
         Game g = new Game();
-        g.buildDeck();
         g.customDeal(0,3,6,9);
-        assertEquals("2Clubs",g.cols.get(0).get(0).toString());
-        assertEquals("3Clubs",g.cols.get(1).get(0).toString());
-        assertEquals("4Clubs",g.cols.get(2).get(0).toString());
-        assertEquals("5Clubs",g.cols.get(3).get(0).toString());
+        assertEquals("2Clubs",g.columns.get(0).cards.get(0).toString());
+        assertEquals("3Clubs",g.columns.get(1).cards.get(0).toString());
+        assertEquals("4Clubs",g.columns.get(2).cards.get(0).toString());
+        assertEquals("5Clubs",g.columns.get(3).cards.get(0).toString());
     }
 
     @Test
     public void testRemoveFunction(){
         Game g = new Game();
-        g.buildDeck();
         g.customDeal(0,3,6,9);
         g.remove(2);
-        assertEquals(0,g.cols.get(2).size());
+        assertEquals(0,g.columns.get(2).cards.size());
     }
 
 
