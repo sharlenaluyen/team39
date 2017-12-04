@@ -121,9 +121,9 @@
 
     <div class="deal">
         <button id="dealButton">
-            <img id="card_image" src="http://www.murphysmagicsupplies.com/images_email/Mandolin_BACK.jpg">
+            <img id="card_image">
             <div class = "deck_count">
-                <p id ="cards_left">48</p>
+                <p id ="cards_left">TBD</p>
             </div>
 
         </button>
@@ -141,7 +141,7 @@ var game;
 var spanishgame;
 var resetgameButton;
 var total = 0;
-var cardsLeft = 48;
+var cardsLeft = 0;
 var isSpanish = false;
 
 document.getElementById('Remove4').onclick = addpoints;
@@ -149,8 +149,6 @@ document.getElementById('Remove3').onclick = addpoints;
 document.getElementById('Remove2').onclick = addpoints;
 document.getElementById('Remove1').onclick = addpoints;
 
-
-document.getElementById('dealButton').onclick = minusCards;
 
 function minusCards(){
     if(cardsLeft > 4){
@@ -160,7 +158,6 @@ function minusCards(){
         cardsLeft = "No More Cards";
     }
     document.getElementById('cards_left').innerHTML = cardsLeft;
-
 }
 
 function addpoints(){
@@ -192,6 +189,10 @@ console.log(game);
         });
 }
 
+mainContainer = document.getElementsByClassName("main_container");
+cardLocation = document.getElementsByClassName("cardLocation");
+theHeader = document.getElementById('logo');
+cardImage = document.getElementById('card_image');
 
 resetgameButton = document.getElementById("newgameButton");
 spanishGameButton = document.getElementById("newgameButtonSpanish");
@@ -199,28 +200,53 @@ spanishGameButton = document.getElementById("newgameButtonSpanish");
 resetgameButton.onclick = function(){
 
     isSpanish = false;
+
+    cardsLeft = 48;
+
     document.getElementById('result').innerHTML = 0;
+
 
     $.getJSON("http://localhost:8080/game", function( data ) {
     display(data);
     game = data;
     });
+
+    document.getElementById('cards_left').innerHTML = 48;
+    $(mainContainer).removeClass("spanishBackground").addClass("normalBackground");
+    $(cardLocation).removeClass("spanishBackground").addClass("normalBackground");
+    $(document.body).removeClass("spanishBackground").addClass("normalBackground");
+    $(theHeader).removeClass("spanishHeader").addClass("normalHeader");
+    $(cardImage).removeClass("spanishCardImage").addClass("normalCardImage");
 };
 
 
 spanishGameButton.onclick = function(){
 
     isSpanish = true;
+
+    cardsLeft = 46;
+
     document.getElementById('result').innerHTML = 0;
+
 
     $.getJSON("http://localhost:8080/spanishgame", function( data ) {
     display(data);
     spanishgame = data;
     });
+
+    document.getElementById('cards_left').innerHTML = 46;
+    $(mainContainer).removeClass("normalBackground").addClass("spanishBackground");
+    $(cardLocation).removeClass("normalBackground").addClass("spanishBackground");
+    $(document.body).removeClass("normalBackground").addClass("spanishBackground");
+    $(theHeader).removeClass("normalHeader").addClass("spanishHeader");
+    $(cardImage).removeClass("normalCardImage").addClass("spanishCardImage");
+
 };
 
 $("#dealButton").click(function(){
     if(isSpanish == true){
+
+        minusCards();
         $.ajax({
         type: "POST",
         url: "/spanishDealGame",
@@ -231,9 +257,10 @@ $("#dealButton").click(function(){
         contentType:"application/json; charset=utf-8",
         dataType:"json",
         });
-        console.log("we went into the if statement");
     }
     else {
+
+        minusCards();
         $.ajax({
         type: "POST",
         url: "/dealGame",
