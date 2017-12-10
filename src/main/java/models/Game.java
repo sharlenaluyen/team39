@@ -1,63 +1,85 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
-/**
- * Assignment 1: Each of the blank methods below require implementation to get AcesUp to build/run
- */
 public class Game {
 
-    public java.util.List<Card> deck = new ArrayList<>();
-
-    public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
-
+    public Deck deck = new Deck();
+    public java.util.List<Column> columns = new ArrayList<>();
 
     public Game(){
-        // initialize a new game such that each column can store cards
-    }
-
-    public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
-
-    public void shuffle() {
-        // shuffles the deck so that it is random
+        columns.add(new Column(1));
+        columns.add(new Column(2));
+        columns.add(new Column(3));
+        columns.add(new Column(4));
     }
 
     public void dealFour() {
-        // remove the top card from the deck and add it to a column; repeat for each of the four columns
+        ArrayList<Card> deal = deck.dealFour();
+        for (int i = 0; i < deal.size(); i++) {
+            Card c = deal.get(i);
+            columns.get(i).cards.add(c);
+        }
+    }
+
+    //customDeal to setup game for testing purposes (i.e. shuffled cards are random and hard to test)
+    public void customDeal(int c1, int c2, int c3, int c4) {
+        columns.get(0).cards.add(deck.cards.get(c1));
+        deck.cards.remove(c1);
+        columns.get(1).cards.add(deck.cards.get(c2));
+        deck.cards.remove(c2);
+        columns.get(2).cards.add(deck.cards.get(c3));
+        deck.cards.remove(c3);
+        columns.get(3).cards.add(deck.cards.get(c4));
+        deck.cards.remove(c4);
     }
 
     public void remove(int columnNumber) {
-        // remove the top card from the indicated column
+        if(columnHasCards(columnNumber)) {
+            Card c = getTopCard(columnNumber);
+            boolean removeCard = false;
+            for (int i = 0; i < 4; i++) {
+                if (i != columnNumber) {
+                    if (columnHasCards(i)) {
+                        Card compare = getTopCard(i);
+                        if (compare.getSuit() == c.getSuit()) {
+                            if (compare.getValue() > c.getValue()) {
+                                removeCard = true;
+                            }
+                        }
+                    }
+                }
+            }
+            if (removeCard) {
+                this.columns.get(columnNumber).cards.remove(this.columns.get(columnNumber).cards.size() - 1);
+            }
+        }
     }
 
+
     private boolean columnHasCards(int columnNumber) {
-        // check indicated column for number of cards; if no cards return false, otherwise return true
+        if (this.columns.get(columnNumber).cards.size()>0) {
+            return true;
+        }
         return false;
     }
 
     private Card getTopCard(int columnNumber) {
-        return this.cols.get(columnNumber).get(this.cols.get(columnNumber).size()-1);
+        return this.columns.get(columnNumber).cards.get(this.columns.get(columnNumber).cards.size()-1);
     }
 
 
     public void move(int columnFrom, int columnTo) {
-        // remove the top card from the columnFrom column, add it to the columnTo column
+        Card cardToMove = getTopCard(columnFrom);
+        this.removeCardFromCol(columnFrom);
+        this.addCardToCol(columnTo,cardToMove);
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
-        cols.get(columnTo).add(cardToMove);
+        columns.get(columnTo).cards.add(cardToMove);
     }
 
     private void removeCardFromCol(int colFrom) {
-        this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
+        this.columns.get(colFrom).cards.remove(this.columns.get(colFrom).cards.size()-1);
     }
 }

@@ -1,3 +1,110 @@
+.normalBackground{
+    background-color: #017c04;
+}
+
+.spanishBackground{
+    background-color: #9f6144;
+}
+
+.normalHeader{
+  background-color: #004902;
+}
+
+.spanishHeader{
+  background-color: #80320d;
+}
+
+#logo{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body{
+  font-family: 'Bree Serif';
+  font-size: 32px;
+  margin: 0;
+  border-size: 5px;
+  border-color: #186329;
+}
+
+.main_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_table{
+display: flex;
+justify-content: flex-start;
+}
+
+#remove_stuff{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#move_line{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 15px;
+  margin: 20px;
+
+}
+
+.rb{
+  margin: 8;
+}
+
+.deal{
+  text-align: center;
+}
+
+#card_image{
+    width: 150px;;
+    height: auto;
+}
+
+
+.normalCardImage{
+    content:url("http://www.murphysmagicsupplies.com/images_email/Mandolin_BACK.jpg");
+}
+
+.spanishCardImage{
+    content:url("https://i.pinimg.com/originals/c3/81/b9/c381b91ada97877fbab4dcfdd4d42f08.jpg");
+}
+
+.newgame{
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newgamespanish{
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score{
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 10px;
+    margin: 3em;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
 tr{
 width:500px;
 }
@@ -6,13 +113,14 @@ td{
 width:100px;
 height:20px;
 text-align:center;
+color: #000000;
 }
 
 .title{
 font-weight: bold;
+color: #000000;
 }
 
 .cardLocation{
 width: 100px;
-background-color:#F0F0F0;
 }

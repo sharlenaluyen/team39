@@ -1,0 +1,54 @@
+Card: (“As a [user], I want [function], so that [value]”)
+Conversation: (Details that clarify the user story)
+Confirmation: (Tests to know when the User Story is completed)
+
+Card: As a player, I want to update the score visually, so that I can keep track of my points
+Conversation: (Every time I discard a card, I would like my score to update and reflect my current score accordingly.
+I would like to continuously beat my scores and improve over time. To do so, I need my scores from all of my games.
+Confirmation: The score updates on screen every time a card is discarded.
+
+Card: As a player, I want to be notified when I win or lose, so that I know when to record my score and start a new game.
+Conversation: In order to keep track of my progress, I need to know when to record my scores. When the game is over
+or there are no more moves, I want to be told so that I do not waste my time.
+Confirmation: No more moves can be done.
+
+Card: As a player, I want to have the option of restarting the deck so that I can play again.
+Conversation: I would like to get a new score with a new game in order to continue to improve my game playing skills.
+Confirmation: The deck is full and shuffled differently than before.
+
+Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
+Conversation: A part of my strategy is to think about which cards are still left in the deck. In order to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
+Confirmation: The deck does not repeat any cards that have already been discarded.
+
+Card: As a player, I want to see which card is discarded, so that I can properly play the current hand.
+Conversation: A part of my strategy is to think about which cards are still left in the deck. In order to continue this strategy, I'd like to know which cards have been discarded to keep track mentally.
+Confirmation: The deck does not repeat any cards that have already been discarded.
+
+
+------------------------------------------------------------------------------------------------
+
+Card: As a player, I want a card to disappear when I click on it, so that I know its been discarded.
+Conversation: I want to visually see the card I intend to discard being discarded.
+Confirmation: When the player clicks on a card, it will disappear.
+
+Card: As a player, I want to be able to move a card to an empty stack, so that I can keep playing with 4 stacks
+Conversation: I want to click on a card and when there is an empty stack, and the card moves to that stack, revealing the card beneath it.
+Confirmation: When the player clicks on a card, it will move to an empty stack, if there is one.
+
+Card: As a player, I only want to discard a card if it is the lowest of two suits.
+Conversation: To avoid the ability to cheat, I'd like to only be able to discard a card if there are two or more suits and it is the lowest of them.
+Confirmation: The card clicked on will discard if it is the lowest of two suits shown..
+
+
+--------------------------------------------------------------------------------------------------
+
+User Story - Deal Cards
+Card: As a user, I would like to have 4 cards dealt to me from the deck so I have a hand to play with.
+Conversation: Every time the user clicks on the deck of cards, 4 cards will be dealt to them. The 4 cards will be placed either on top (but not fully covering) a previously dealt card or an empty card spot. The cards will be visibly placed in a row in front of the user so that the faces and values of the cards are clearly seen.
+Confirmation: The user clicks on the deck and 4 cards are dealt in a row with the suits and values visible to the user.
+
+
+User Story - User Interface with Instructions
+Card: As a user, I would like to be able to access an instructions tab that allows me to view the instructions for the game, along with my action capabilities.
+Conversation: An instructions tab will appear at the top of the screen that when clicked on will open up to the user. The instructions window will list the instructions for the game along with the action capabilities of the user. These abilities include being able to click on the deck to get new cards, click on a card to remove it or move it to another card column. The user will be able to ‘X’ out of the window, with the tab still visible on the top of the screen.
+Confirmation: The user clicks on the instructions tab and the instructions appear in a window. The user can see the game and action instructions and ‘X’ out of the window when they are finished.

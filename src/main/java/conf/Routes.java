@@ -22,9 +22,6 @@ import ninja.Router;
 import ninja.application.ApplicationRoutes;
 import controllers.ApplicationController;
 
-/**
- * Assignment 1: No changes are needed in this file, but it is good to be aware of the routes for future assignments.
- */
 public class Routes implements ApplicationRoutes {
 
     @Override
@@ -36,6 +33,11 @@ public class Routes implements ApplicationRoutes {
         router.POST().route("/dealGame").with(ApplicationController.class, "dealPost");
         router.POST().route("/moveCard/{columnFrom}/{columnTo}").with(ApplicationController.class, "moveCard");
         router.POST().route("/removeCard/{column}").with(ApplicationController.class, "removeCard");
+
+        router.GET().route("/spanishgame").with(ApplicationController.class, "gameGetSpanish");
+        router.POST().route("/spanishDealGame").with(ApplicationController.class, "dealPostSpanish");
+        router.POST().route("/spanishMoveCard/{columnFrom}/{columnTo}").with(ApplicationController.class, "moveCardSpanish");
+        router.POST().route("/spanishRemoveCard/{column}").with(ApplicationController.class, "removeCardSpanish");
 
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)

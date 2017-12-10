@@ -20,9 +20,11 @@ import models.Game;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
+import models.SpanishGame;
 
 import com.google.inject.Singleton;
 import ninja.params.PathParam;
+
 
 @Singleton
 public class ApplicationController {
@@ -33,11 +35,18 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
-        g.buildDeck();
-        g.shuffle();
+        g.deck.shuffle();
         g.dealFour();
 
         return Results.json().render(g);
+    }
+
+    public Result gameGetSpanish(){
+        SpanishGame sg = new SpanishGame();
+        sg.deck.shuffle();
+        sg.dealFour();
+
+        return Results.json().render(sg);
     }
 
     public Result dealPost(Context context, Game g) {
@@ -47,14 +56,31 @@ public class ApplicationController {
         return Results.json().render(g);
     }
 
+    public Result dealPostSpanish(Context context, SpanishGame sg) {
+        if(context.getRequestPath().contains("spanishDealGame")){
+            sg.dealFour();
+        }
+        return Results.json().render(sg);
+    }
+
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
         g.remove(colNumber);
-        return Results.json().render(g);
+        return  Results.json().render(g);
+    }
+
+    public Result removeCardSpanish(Context context, @PathParam("column") int colNumber, SpanishGame sg){
+        sg.remove(colNumber);
+        return  Results.json().render(sg);
     }
 
     public Result moveCard(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, Game g){
         g.move(colFrom,colTo);
-        return Results.json().render(g);
+        return  Results.json().render(g);
+    }
+
+    public Result moveCardSpanish(Context context, @PathParam("columnFrom") int colFrom, @PathParam("columnTo") int colTo, SpanishGame sg){
+        sg.move(colFrom,colTo);
+        return  Results.json().render(sg);
     }
 
 }
